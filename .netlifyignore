@@ -1,0 +1,17 @@
+# Files Netlify should NOT include in the deployed bundle, even if they're
+# present in the publish directory. Mirrors .gitignore for direct-upload deploys.
+
+.claude/
+.cursor/
+scripts/
+__pycache__/
+*.pyc
+
+# Original HEIC files (browsers can't render; JPG converts are deployed)
+**/*.heic
+**/*.HEIC
+
+# Internal docs
+CLAUDE.md
+linktophots.txt
+Eventdetails/

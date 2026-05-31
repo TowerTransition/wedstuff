@@ -1,0 +1,27 @@
+# OS / editor
+Thumbs.db
+.DS_Store
+desktop.ini
+*.swp
+
+# Cursor / Claude tooling
+.claude/
+.cursor/
+
+# Build / dev artifacts
+scripts/__pycache__/
+scripts/image_index.json
+__pycache__/
+*.pyc
+
+# Original HEIC source files — JPG converts are committed instead
+**/*.heic
+**/*.HEIC
+
+# Internal docs & source-of-truth that shouldn't ship publicly
+CLAUDE.md
+linktophots.txt
+Eventdetails/
+
+# Optional: exclude the older DSI engagement set if you're not using it
+# images/DSI_*.jpg

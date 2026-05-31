@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#08080a" />
+  <title>Amaziah &amp; Santana · A Wedding in Italy · October 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<audio id="wedding-music" preload="auto"></audio>
+
+<!-- ════════════════════════════════════════════
+     NAVIGATION
+═════════════════════════════════════════════ -->
+<nav id="main-nav" aria-hidden="true">
+  <div class="nav-inner">
+    <button class="nav-logo" data-page="home" aria-label="Home">A &amp; S</button>
+    <ul class="nav-links" role="list">
+      <li><button class="nav-btn" data-page="home">Home</button></li>
+      <li><button class="nav-btn" data-page="events">Wedding</button></li>
+      <li><button class="nav-btn" data-page="story">Our Story</button></li>
+      <li><button class="nav-btn" data-page="rsvp">RSVP</button></li>
+      <li><button class="nav-btn" data-page="registry">Registry</button></li>
+      <li><button class="nav-btn" data-page="faq">FAQ</button></li>
+      <li><button class="nav-btn" data-page="recommendations">Recommendations</button></li>
+      <li><button class="nav-btn" data-page="todo">Things to Do</button></li>
+      <li><button class="nav-btn" data-page="pictures">Engagement Shoot</button></li>
+    </ul>
+    <div class="nav-right">
+      <button id="music-btn" aria-label="Toggle wedding music" title="Music">
+        <span class="music-icon" aria-hidden="true">♪</span>
+      </button>
+      <button id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" aria-hidden="true">
+    <button class="nav-btn" data-page="home">Home</button>
+    <button class="nav-btn" data-page="events">Wedding</button>
+    <button class="nav-btn" data-page="story">Our Story</button>
+    <button class="nav-btn" data-page="rsvp">RSVP</button>
+    <button class="nav-btn" data-page="registry">Registry</button>
+    <button class="nav-btn" data-page="faq">FAQ</button>
+    <button class="nav-btn" data-page="recommendations">Recommendations</button>
+    <button class="nav-btn" data-page="todo">Things to Do</button>
+    <button class="nav-btn" data-page="pictures">Engagement Shoot</button>
+  </div>
+</nav>
+
+<!-- Autoplay-blocked banner (shown by app.js if audio.play() rejects) -->
+<div id="music-banner" role="status" aria-live="polite" hidden>
+  <span>Tap to enable wedding music</span>
+  <button type="button" id="music-banner-btn">Play music</button>
+  <button type="button" id="music-banner-close" aria-label="Dismiss">✕</button>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE 1 · PASSWORD (English)
+═════════════════════════════════════════════ -->
+<section id="page-password" class="page active">
+  <div class="pw-wrap">
+    <p class="pw-crown" aria-hidden="true">⸻&thinsp;✦&thinsp;⸻</p>
+    <p class="pw-ciao">CIAO!</p>
+    <h1 class="pw-title">PASSWORD RICHIESTA</h1>
+    <p class="pw-sub-en">Hello! Password Required</p>
+    <div class="pw-line" aria-hidden="true"></div>
+    <form id="pw-form" novalidate autocomplete="off">
+      <input
+        id="pw-input"
+        type="password"
+        placeholder="Enter password"
+        aria-label="Enter password"
+        spellcheck="false"
+      />
+      <button type="submit" id="pw-submit">ENTER SITE</button>
+    </form>
+    <p id="pw-error" aria-live="polite">That password isn't right. Please try again.</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAGE 2 · HOME
+═════════════════════════════════════════════ -->
+<section id="page-home" class="page">
+
+  <!--
+    Slideshow with two-layer letterbox approach:
+    .slide-bg = same image, scaled & heavily blurred, fills the viewport
+                so there is never a black bar (looks like a cinema poster)
+    .slide-fg = same image, object-fit: contain, so faces are NEVER cropped
+                regardless of viewport orientation (mobile or desktop)
+  -->
+  <div id="slideshow" aria-hidden="true">
+    <div class="slide active" data-fit="landscape">
+      <div class="slide-bg" style="background-image:url('home-page/home-1.jpg')"></div>
+      <img class="slide-fg" src="home-page/home-1.jpg" alt="" />
+    </div>
+    <div class="slide" data-fit="landscape">
+      <div class="slide-bg" style="background-image:url('home-page/home-2.jpg')"></div>
+      <img class="slide-fg" src="home-page/home-2.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="slide" data-fit="landscape">
+      <div class="slide-bg" style="background-image:url('home-page/home-3.jpg')"></div>
+      <img class="slide-fg" src="home-page/home-3.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="slide" data-fit="landscape">
+      <div class="slide-bg" style="background-image:url('home-page/home-4.jpg')"></div>
+      <img class="slide-fg" src="home-page/home-4.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="slide" data-fit="landscape">
+      <div class="slide-bg" style="background-image:url('home-page/home-5.jpg')"></div>
+      <img class="slide-fg" src="home-page/home-5.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="slide" data-fit="landscape">
+      <div class="slide-bg" style="background-image:url('home-page/home-6.jpg')"></div>
+      <img class="slide-fg" src="home-page/home-6.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="slide" data-fit="landscape">
+      <div class="slide-bg" style="background-image:url('home-page/home-7.jpg')"></div>
+      <img class="slide-fg" src="home-page/home-7.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="slide" data-fit="landscape">
+      <div class="slide-bg" style="background-image:url('home-page/home-8.jpg')"></div>
+      <img class="slide-fg" src="home-page/home-8.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="slide" data-fit="landscape">
+      <div class="slide-bg" style="background-image:url('home-page/home-9.jpg')"></div>
+      <img class="slide-fg" src="home-page/home-9.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="slide" data-fit="landscape">
+      <div class="slide-bg" style="background-image:url('home-page/home-10.jpg')"></div>
+      <img class="slide-fg" src="home-page/home-10.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="slide" data-fit="landscape">
+      <div class="slide-bg" style="background-image:url('home-page/home-11.jpg')"></div>
+      <img class="slide-fg" src="home-page/home-11.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="slide" data-fit="landscape">
+      <div class="slide-bg" style="background-image:url('home-page/home-12.jpg')"></div>
+      <img class="slide-fg" src="home-page/home-12.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="slide" data-fit="landscape">
+      <div class="slide-bg" style="background-image:url('home-page/home-13.jpg')"></div>
+      <img class="slide-fg" src="home-page/home-13.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="slide" data-fit="landscape">
+      <div class="slide-bg" style="background-image:url('home-page/home-14.jpg')"></div>
+      <img class="slide-fg" src="home-page/home-14.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="slide" data-fit="landscape">
+      <div class="slide-bg" style="background-image:url('home-page/home-15.jpg')"></div>
+      <img class="slide-fg" src="home-page/home-15.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="slide" data-fit="landscape">
+      <div class="slide-bg" style="background-image:url('home-page/home-16.png')"></div>
+      <img class="slide-fg" src="home-page/home-16.png" alt="" loading="lazy" />
+    </div>
+  </div>
+  <div class="home-veil" aria-hidden="true"></div>
+
+  <div class="hero">
+    <p class="hero-deco" aria-hidden="true">⸻&thinsp;✦&thinsp;⸻</p>
+    <h1 class="hero-names">Amaziah &amp; Santana</h1>
+    <div class="hero-rule" aria-hidden="true"></div>
+    <p class="hero-date">OCTOBER II &nbsp;·&nbsp; MMXXVI</p>
+    <p class="hero-venue">Villa Arvedi &nbsp;·&nbsp; Verona, Italia</p>
+    <p class="hero-deco small" aria-hidden="true">⸻&thinsp;✦&thinsp;⸻</p>
+  </div>
+
+  <div class="dots" aria-hidden="true">
+    <button class="dot active" data-slide="0"></button>
+    <button class="dot" data-slide="1"></button>
+    <button class="dot" data-slide="2"></button>
+    <button class="dot" data-slide="3"></button>
+    <button class="dot" data-slide="4"></button>
+    <button class="dot" data-slide="5"></button>
+    <button class="dot" data-slide="6"></button>
+    <button class="dot" data-slide="7"></button>
+    <button class="dot" data-slide="8"></button>
+    <button class="dot" data-slide="9"></button>
+    <button class="dot" data-slide="10"></button>
+    <button class="dot" data-slide="11"></button>
+    <button class="dot" data-slide="12"></button>
+    <button class="dot" data-slide="13"></button>
+    <button class="dot" data-slide="14"></button>
+    <button class="dot" data-slide="15"></button>
+  </div>
+
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAGE 3 · WEDDING (Events)
+═════════════════════════════════════════════ -->
+<section id="page-events" class="page scrollable">
+  <div class="page-body">
+
+    <header class="sec-head">
+      <p class="sec-deco" aria-hidden="true">⸻&thinsp;✦&thinsp;⸻</p>
+      <h2 class="sec-title">The Wedding</h2>
+      <p class="sec-sub">OCTOBER 2, 2026 &nbsp;·&nbsp; VERONA, ITALY</p>
+    </header>
+
+    <div class="rsvp-bar reveal">RSVP BY &nbsp;<strong>JUNE 27, 2026</strong></div>
+
+    <!-- VENUE -->
+    <div class="ev-block">
+      <h3 class="block-label reveal">Ceremony &amp; Reception Venue</h3>
+
+      <div class="venue-hero reveal">
+        <img src="wedding/wedding-1.jpg" alt="Villa Arvedi — Ceremony and Reception" loading="lazy" />
+        <div class="venue-hero-caption">Villa Arvedi &nbsp;·&nbsp; Grezzana, Verona</div>
+      </div>
+
+      <div class="countdown reveal" id="wedding-countdown">
+        <div class="cd-label">COUNTING DOWN TO THE WEDDING</div>
+        <div class="cd-units">
+          <div class="cd-unit"><span class="cd-num" id="cd-days">--</span><span class="cd-name">DAYS</span></div>
+          <div class="cd-sep">·</div>
+          <div class="cd-unit"><span class="cd-num" id="cd-hours">--</span><span class="cd-name">HOURS</span></div>
+          <div class="cd-sep">·</div>
+          <div class="cd-unit"><span class="cd-num" id="cd-mins">--</span><span class="cd-name">MINUTES</span></div>
+          <div class="cd-sep">·</div>
+          <div class="cd-unit"><span class="cd-num" id="cd-secs">--</span><span class="cd-name">SECONDS</span></div>
+        </div>
+      </div>
+
+      <div class="venue-split reveal">
+        <div class="venue-text">
+          <p class="venue-name-lg">Villa Arvedi</p>
+          <p class="venue-loc-sm">37023 Grezzana, Verona &nbsp;·&nbsp; <a href="https://www.villarvedi.it" target="_blank" rel="noopener">villarvedi.it ↗</a></p>
+          <p class="venue-desc">
+            One of the most majestic Venetian villas in the Veneto region, Villa Arvedi
+            stands in dominant position over the Valpantena valley, a few kilometers from Verona.
+            Originally built in the 15th century and renovated in 1656 by architect Giovanni Battista Bianchi,
+            the villa has been in the Arvedi family since 1824.
+          </p>
+          <p class="venue-desc">
+            Its grand salons &mdash; the <em>Sala dei Titani</em> and <em>Sala dei Cesari</em> &mdash; are decorated
+            with original frescoes, oil portraits, and marble floors, while the
+            celebrated <em>Giardino all'Italiana</em> unfolds below the baroque terrace.
+            The estate featured as a film location in <em>Letters to Juliet</em>.
+          </p>
+        </div>
+        <div class="venue-facade-col">
+          <figure class="venue-facade">
+            <img src="wedding/wedding-2.jpg" alt="Villa Arvedi" loading="lazy" />
+            <figcaption class="venue-facade-cap">Giardino all'Italiana</figcaption>
+          </figure>
+          <figure class="venue-facade venue-facade-2">
+            <img src="wedding/wedding-3.jpg" alt="Villa Arvedi" loading="lazy" />
+            <figcaption class="venue-facade-cap">The Grand Salons</figcaption>
+          </figure>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="ev-block">
+      <h3 class="block-label reveal">Italy Travel &nbsp;·&nbsp; Sep 29 – Oct 4, 2026</h3>
+      <ol class="timeline" role="list">
+
+        <li class="tl reveal">
+          <div class="tl-when"><span class="tl-dow">TUE</span><span class="tl-date">SEP 29</span></div>
+          <div class="tl-body">
+            <h4>Departure</h4>
+            <p>Depart for an evening overnight flight to Venice or Verona.</p>
+            <p class="tl-note">East Coast is 6 hrs behind Italy &nbsp;·&nbsp; West Coast is 9 hrs behind Italy.</p>
+          </div>
+        </li>
+
+        <li class="tl reveal">
+          <div class="tl-when"><span class="tl-dow">WED</span><span class="tl-date">SEP 30</span></div>
+          <div class="tl-body">
+            <h4>Arrive in Italy</h4>
+            <p>A rest day to settle in at Villa Balis Crema after the overnight flight. Recover, explore Verona, and prepare to celebrate.</p>
+          </div>
+        </li>
+
+        <li class="tl reveal">
+          <div class="tl-when"><span class="tl-dow">THU</span><span class="tl-date">OCT 1</span></div>
+          <div class="tl-body">
+            <h4>Welcome Celebration</h4>
+            <p>Let the festivities begin — join us for a welcome celebration the evening before the wedding. More details to come.</p>
+          </div>
+        </li>
+
+        <li class="tl tl-featured reveal">
+          <div class="tl-when"><span class="tl-dow">FRI</span><span class="tl-date">OCT 2</span></div>
+          <div class="tl-body">
+            <h4>Wedding Day &nbsp;<span aria-hidden="true">✦</span></h4>
+            <p>Ceremony and reception at <strong>Villa Arvedi</strong>, Grezzana, Verona. Transportation provided — approximately 10 minutes from the hotel.</p>
+          </div>
+        </li>
+
+        <li class="tl reveal">
+          <div class="tl-when"><span class="tl-dow">SAT</span><span class="tl-date">OCT 3</span></div>
+          <div class="tl-body">
+            <h4>Venice — Group Day Trip</h4>
+            <p>A group excursion to experience the food, gondolas, and culture of Venice. Verona is approximately <strong>1.5 hours</strong> from Venice.</p>
+          </div>
+        </li>
+
+        <li class="tl reveal">
+          <div class="tl-when"><span class="tl-dow">SUN</span><span class="tl-date">OCT 4</span></div>
+          <div class="tl-body">
+            <h4>Farewell</h4>
+            <p>Check out of the hotel. Some guests head home; others continue their Italian adventure.</p>
+          </div>
+        </li>
+
+      </ol>
+    </div>
+
+    <!-- ACCOMMODATIONS -->
+    <div class="ev-block">
+      <h3 class="block-label reveal">Accommodations</h3>
+      <div class="accom-card reveal">
+        <div class="accom-top">
+          <div>
+            <p class="accom-name">Villa Balis Crema</p>
+            <p class="accom-loc">Verona Area, Italy</p>
+          </div>
+          <a href="https://villabaliscrema.it" target="_blank" rel="noopener noreferrer" class="accom-url">villabaliscrema.it ↗</a>
+        </div>
+        <p class="accom-desc">A restored Italian villa with 27 king-bedded rooms, onsite spa, pool, and restaurant — 10 minutes from Villa Arvedi.</p>
+        <div class="fact-grid">
+          <div class="fact"><span class="fact-k">Dates</span><span class="fact-v">Sep 30 – Oct 4 (4 nights)</span></div>
+          <div class="fact"><span class="fact-k">Book</span><span class="fact-v">villabaliscrema.it</span></div>
+        </div>
+        <p class="room-label">ROOM OPTIONS</p>
+        <div class="room-grid">
+          <div class="room-chip">Cozy Room</div>
+          <div class="room-chip">Superior Room</div>
+          <div class="room-chip">Deluxe Room</div>
+          <div class="room-chip">Deluxe Garden Room</div>
+          <div class="room-chip">Junior Spa Room</div>
+        </div>
+        <p class="room-note">Some categories have villa and barchessa / cottage variations.</p>
+        <div class="accom-notice">
+          <p>✦ &nbsp;Please contact us <em>before</em> booking so we can coordinate guest count. Another wedding is in the area the same weekend — if Villa Balis Crema fills, we will arrange alternative nearby accommodations.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAGE 4 · OUR STORY
+═════════════════════════════════════════════ -->
+<section id="page-story" class="page scrollable">
+  <div class="page-body">
+
+    <header class="sec-head">
+      <p class="sec-deco" aria-hidden="true">⸻&thinsp;✦&thinsp;⸻</p>
+      <h2 class="sec-title">Our Story</h2>
+      <p class="sec-sub">FROM THE BEGINNING TO FOREVER</p>
+    </header>
+
+    <!-- HOW WE MET — full-bleed scrolling strip -->
+    <div class="story-marquee-shell story-marquee-shell--full reveal">
+      <div class="story-marquee-mover">
+        <div class="story-marquee-group">
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-1.jpg" alt="How we met 1" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-2.jpg" alt="How we met 2" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-3.jpg" alt="How we met 3" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-4.jpg" alt="How we met 4" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-5.jpg" alt="How we met 5" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-6.jpg" alt="How we met 6" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-7.jpg" alt="How we met 7" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-8.jpg" alt="How we met 8" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-9.jpg" alt="How we met 9" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-10.jpg" alt="How we met 10" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-11.jpg" alt="How we met 11" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-12.jpg" alt="How we met 12" loading="lazy" decoding="async" /></figure>
+        </div>
+        <div class="story-marquee-group" aria-hidden="true">
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-1.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-2.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-3.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-4.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-5.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-6.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-7.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-8.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-9.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-10.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-11.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/how-we-met-12.jpg" alt="" loading="lazy" decoding="async" /></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="chapter reveal">
+      <p class="ch-num">I.</p>
+      <h3 class="ch-title">How We Met</h3>
+      <p class="ch-text">In 2021, during the height of COVID shutdowns, fate brought Amaziah and Santana to Burn at The Battery Atlanta.</p>
+      <p class="ch-text">Amaziah was simply looking to get out of the house and enjoy basketball replays at a lowkey spot in the area. Meanwhile, Santana and her cousin Ashley were exploring the newly opened businesses at The Battery for an upcoming "Cousin Day" for their family. After hopping from place to place, their final stop was Burn, where they met Amaziah.</p>
+      <p class="ch-text">When Santana and Ashley arrived, there were two customers inside: Amaziah and another person. Santana and Ashley joined Amaziah and talked to him for an hour. Santana and Amaziah exchanged numbers, started dating and the rest is history!</p>
+      <blockquote class="ch-quote reveal">
+        <p class="ch-quote-text">"Ashley and I left Burn and walked to the car, then I realized I forgot my debit card. I went back to get it and Amaziah was still there. He asked if I had a business card so that he could get my number LOL."</p>
+        <cite class="ch-quote-name">— Santana</cite>
+      </blockquote>
+      <blockquote class="ch-quote reveal">
+        <p class="ch-quote-text">"After Santana left, I regretted that I didn't ask for her number. I told myself that if it was meant to be, God would allow me to run into her again at some point. When she came back a few minutes later, I felt like that was the sign, so I asked for her number!"</p>
+        <cite class="ch-quote-name">— Amaziah</cite>
+      </blockquote>
+    </div>
+
+    <!-- THE PROPOSAL — full-bleed scrolling strip -->
+    <div class="story-marquee-shell story-marquee-shell--full reveal">
+      <div class="story-marquee-mover">
+        <div class="story-marquee-group">
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-1.jpg" alt="The proposal 1" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-2.jpg" alt="The proposal 2" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-3.jpg" alt="The proposal 3" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-4.jpg" alt="The proposal 4" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-5.jpg" alt="The proposal 5" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-6.jpg" alt="The proposal 6" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-7.jpg" alt="The proposal 7" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-8.jpg" alt="The proposal 8" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-9.jpg" alt="The proposal 9" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-10.jpg" alt="The proposal 10" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-11.jpg" alt="The proposal 11" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-12.jpg" alt="The proposal 12" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-14.jpg" alt="The proposal 14" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-15.jpg" alt="The proposal 15" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-16.jpg" alt="The proposal 16" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-17.jpg" alt="The proposal 17" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-18.jpg" alt="The proposal 18" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-19.jpg" alt="The proposal 19" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-20.jpg" alt="The proposal 20" loading="lazy" decoding="async" /></figure>
+        </div>
+        <div class="story-marquee-group" aria-hidden="true">
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-1.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-2.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-3.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-4.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-5.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-6.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-7.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-8.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-9.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-10.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-11.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-12.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-14.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-15.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-16.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-17.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-18.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-19.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <figure class="story-marquee-card"><img src="our-story/the-proposal-20.jpg" alt="" loading="lazy" decoding="async" /></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="chapter reveal">
+      <p class="ch-num">II.</p>
+      <h3 class="ch-title">The Proposal</h3>
+      <p class="ch-text">Amaziah and Santana had a relaxing staycation planned the weekend of September 6, 2025. The day began with Amaziah dropping Santana off to get a massage while he secretly slipped away to finalize the details for a surprise proposal.</p>
+      <p class="ch-text">After the massage, they enjoyed a romantic dinner before Amaziah casually mentioned one last stop of the evening: live music. On the way, he explained that he needed to make a quick stop at his friend Terrance's event.</p>
+      <p class="ch-text">He casually pulled into Freedom Park and they walked into a private area with family members eagerly waiting to witness the proposal.</p>
+      <p class="ch-text">Spoiler alert — there was no event at the park and to this day, Santana has not met anyone named Terrance!</p>
+    </div>
+
+    <!-- Venue teaser -->
+    <div class="story-venue-teaser reveal">
+      <p class="svt-label" aria-hidden="true">⸻&thinsp;✦&thinsp;⸻</p>
+      <p class="svt-text">And the setting for the next chapter?</p>
+      <p class="svt-name">Villa Arvedi</p>
+      <p class="svt-sub">Grezzana, Verona &nbsp;·&nbsp; October 2, 2026</p>
+      <figure class="svt-photo">
+        <img src="home-page/home-12.jpg" alt="Villa Arvedi" loading="lazy" />
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAGE 5 · RSVP
+═════════════════════════════════════════════ -->
+<section id="page-rsvp" class="page scrollable">
+  <div class="page-body">
+
+    <header class="sec-head">
+      <p class="sec-deco" aria-hidden="true">⸻&thinsp;✦&thinsp;⸻</p>
+      <h2 class="sec-title">RSVP</h2>
+      <p class="sec-sub">PLEASE RESPOND BY JUNE 27, 2026</p>
+    </header>
+
+    <div class="rsvp-tabs reveal" role="tablist">
+      <button class="rsvp-tab active" role="tab" data-rsvp-tab="new" aria-selected="true">New RSVP</button>
+      <button class="rsvp-tab" role="tab" data-rsvp-tab="edit" aria-selected="false">Update my RSVP</button>
+    </div>
+
+    <!-- ── Step 1: New RSVP ── -->
+    <div class="rsvp-panel active" id="rsvp-panel-new" role="tabpanel">
+      <p class="rsvp-intro">Welcome! Please share your first name to start your RSVP. You will have the option of adjusting your dinner choice and flight information as needed.</p>
+      <form id="rsvp-new-form" class="rsvp-form" novalidate>
+        <label class="field">
+          <span class="field-label">First Name <em>*</em></span>
+          <input name="first_name" type="text" required autocomplete="given-name" placeholder="Enter your first name" />
+        </label>
+        <button type="submit" class="btn-primary">Continue →</button>
+        <p class="form-error" data-error-for="rsvp-new" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <!-- ── Step 2: Update RSVP ── -->
+    <div class="rsvp-panel" id="rsvp-panel-edit" role="tabpanel">
+      <p class="rsvp-intro">Enter your first name to find and update your RSVP.</p>
+      <form id="rsvp-lookup-form" class="rsvp-form" novalidate>
+        <label class="field">
+          <span class="field-label">First Name <em>*</em></span>
+          <input name="first_name" type="text" required autocomplete="given-name" placeholder="Enter your first name" />
+        </label>
+        <button type="submit" class="btn-primary">Find my RSVP</button>
+        <p class="form-error" data-error-for="rsvp-lookup" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <!-- ── Full RSVP form (shown after name is verified) ── -->
+    <div class="rsvp-details-wrap" id="rsvp-details-wrap" hidden>
+      <div class="rsvp-details-header">
+        <p class="rdh-label">RSVP DETAILS</p>
+        <p class="rdh-name">Guest: <span id="rsvp-details-name">—</span></p>
+      </div>
+
+      <form id="rsvp-details-form" class="rsvp-form" novalidate>
+        <input type="hidden" name="guest_name" />
+
+        <div class="form-row two">
+          <label class="field">
+            <span class="field-label">First Name <em>*</em></span>
+            <input name="first_name" type="text" required autocomplete="given-name" />
+          </label>
+          <label class="field">
+            <span class="field-label">Last Name <em>*</em></span>
+            <input name="last_name" type="text" required autocomplete="family-name" />
+          </label>
+        </div>
+
+        <label class="field">
+          <span class="field-label">Email Address <em>*</em></span>
+          <input name="email" type="email" required autocomplete="email" />
+        </label>
+
+        <fieldset class="rsvp-fieldset">
+          <legend>Dinner Preference <em>*</em></legend>
+          <div class="radio-grid">
+            <label class="radio-chip"><input type="radio" name="dinner" value="Chicken" /><span>Chicken</span></label>
+            <label class="radio-chip"><input type="radio" name="dinner" value="Fish" /><span>Fish</span></label>
+            <label class="radio-chip"><input type="radio" name="dinner" value="Pork" /><span>Pork</span></label>
+            <label class="radio-chip"><input type="radio" name="dinner" value="Vegetarian" /><span>Vegetarian</span></label>
+          </div>
+          <label class="field">
+            <span class="field-label">Dietary restrictions / allergies</span>
+            <textarea name="dietary_restrictions" rows="3" placeholder="e.g. Gluten-free, peanut allergy, vegan…"></textarea>
+          </label>
+        </fieldset>
+
+        <fieldset class="rsvp-fieldset">
+          <legend>Emergency Contact</legend>
+          <div class="form-row two">
+            <label class="field">
+              <span class="field-label">Contact name</span>
+              <input name="emergency_name" type="text" />
+            </label>
+            <label class="field">
+              <span class="field-label">Contact phone</span>
+              <input name="emergency_phone" type="tel" placeholder="+1 555 123 4567" />
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="rsvp-fieldset">
+          <legend>Flight Arrival</legend>
+          <label class="field">
+            <span class="field-label">Arrival date &amp; time</span>
+            <input name="arrival_datetime" type="datetime-local" />
+          </label>
+          <div class="form-row two">
+            <label class="field">
+              <span class="field-label">Arrival flight number</span>
+              <input name="arrival_flight" type="text" placeholder="e.g. DL 142" />
+            </label>
+            <label class="field">
+              <span class="field-label">Arrival airline</span>
+              <input name="arrival_airline" type="text" placeholder="e.g. Delta" />
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="rsvp-fieldset">
+          <legend>Flight Departure</legend>
+          <label class="field">
+            <span class="field-label">Departure date &amp; time</span>
+            <input name="departure_datetime" type="datetime-local" />
+          </label>
+          <div class="form-row two">
+            <label class="field">
+              <span class="field-label">Departure flight number</span>
+              <input name="departure_flight" type="text" placeholder="e.g. UA 982" />
+            </label>
+            <label class="field">
+              <span class="field-label">Departure airline</span>
+              <input name="departure_airline" type="text" placeholder="e.g. United" />
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Save my RSVP</button>
+          <p class="form-error" data-error-for="rsvp-details" aria-live="polite"></p>
+          <p class="form-success" id="rsvp-success" hidden>Saved! You can return any time to update your details.</p>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAGE 6 · REGISTRY
+═════════════════════════════════════════════ -->
+<section id="page-registry" class="page scrollable">
+  <div class="page-body">
+
+    <header class="sec-head">
+      <p class="sec-deco" aria-hidden="true">⸻&thinsp;✦&thinsp;⸻</p>
+      <h2 class="sec-title">Registry</h2>
+      <p class="sec-sub">YOUR PRESENCE IS OUR GREATEST GIFT</p>
+    </header>
+
+    <!-- ── INTRO TEXT ── -->
+    <div class="reg-intro-block">
+      <p class="reg-intro-p">Thank you so much for your love, support, and presence throughout the years. Celebrating this special season with you truly means the world to us, and your presence is the greatest gift we could receive.</p>
+      <p class="reg-intro-p">We are grateful to already have many of the essentials for our home, but for those who have asked or wish to bless us further, we have included two optional gift categories:</p>
+      <p class="reg-intro-p"><strong>Registry</strong> — A selection of a few meaningful items we would love for our home together.</p>
+      <p class="reg-intro-p"><strong>Honeymoon Experiences</strong> — Specific experiences that would contribute to a memorable honeymoon in Italy.</p>
+    </div>
+
+    <!-- ── TWO NAVIGATION BOXES ── -->
+    <div class="reg-nav-boxes">
+      <a class="reg-nav-box" href="https://www.myregistry.com/wedding-registry/santana-heard-and-amaziah-yahalom-/5460174" target="_blank" rel="noopener">
+        <span class="reg-nav-icon">🎁</span>
+        <span class="reg-nav-label">Registry</span>
+        <span class="reg-nav-hint">View our gift registry</span>
+      </a>
+      <button class="reg-nav-box" onclick="document.getElementById('honeymoon-section').scrollIntoView({behavior:'smooth'})">
+        <span class="reg-nav-icon">✈️</span>
+        <span class="reg-nav-label">Honeymoon Experiences</span>
+        <span class="reg-nav-hint">Contribute to our Italy honeymoon</span>
+      </button>
+    </div>
+
+    <!-- ── HONEYMOON EXPERIENCES ── -->
+    <div id="honeymoon-section" class="honeymoon-section">
+      <h3 class="attire-heading" style="margin-bottom:2.5rem;">
+        <span class="attire-heading-line"></span>
+        Honeymoon Experiences
+        <span class="attire-heading-line"></span>
+      </h3>
+
+      <div class="exp-grid">
+
+        <!-- 1 -->
+        <div class="exp-card">
+          <div class="exp-img-wrap">
+            <img src="Honeymoon%20fund/1.%20Vatican%20Museum%20Tour.PNG" alt="Vatican Museum Tour" loading="lazy" />
+          </div>
+          <div class="exp-body">
+            <h4 class="exp-title">Vatican Museum Tour</h4>
+            <p class="exp-price">$62 per person</p>
+            <p class="exp-detail">2 spots available · Goal: $124</p>
+            <button class="exp-purchase-btn" data-title="Vatican Museum Tour" data-price="62" data-type="fixed" data-spots="2" data-goal="124">Purchase</button>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="exp-card">
+          <div class="exp-img-wrap">
+            <img src="Honeymoon%20fund/2.%20Colosseum%20Tour.PNG" alt="Colosseum Tour" loading="lazy" />
+          </div>
+          <div class="exp-body">
+            <h4 class="exp-title">Colosseum Tour</h4>
+            <p class="exp-price">$25 per person</p>
+            <p class="exp-detail">2 spots available · Goal: $50</p>
+            <button class="exp-purchase-btn" data-title="Colosseum Tour" data-price="25" data-type="fixed" data-spots="2" data-goal="50">Purchase</button>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="exp-card">
+          <div class="exp-img-wrap">
+            <img src="Honeymoon%20fund/3.%20Antinori%20Vineyard.JPG" alt="Antinori Vineyard Wine Tour" loading="lazy" />
+          </div>
+          <div class="exp-body">
+            <h4 class="exp-title">Antinori Vineyard Wine Tour</h4>
+            <p class="exp-price">$100 per person</p>
+            <p class="exp-detail">2 spots available · Goal: $200</p>
+            <button class="exp-purchase-btn" data-title="Antinori Vineyard Wine Tour" data-price="100" data-type="fixed" data-spots="2" data-goal="200">Purchase</button>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="exp-card">
+          <div class="exp-img-wrap">
+            <img src="Honeymoon%20fund/4.Spa%20Day.PNG" alt="Spa Day" loading="lazy" />
+          </div>
+          <div class="exp-body">
+            <h4 class="exp-title">Spa Day</h4>
+            <p class="exp-price">$150 per person</p>
+            <p class="exp-detail">2 spots available · Goal: $300</p>
+            <button class="exp-purchase-btn" data-title="Spa Day" data-price="150" data-type="fixed" data-spots="2" data-goal="300">Purchase</button>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="exp-card">
+          <div class="exp-img-wrap">
+            <img src="Honeymoon%20fund/5.%20Amalfi%20Coast%20Boat%20Ride.PNG" alt="Amalfi Coast Boat Ride" loading="lazy" />
+          </div>
+          <div class="exp-body">
+            <h4 class="exp-title">Amalfi Coast Boat Ride</h4>
+            <p class="exp-price">Any contribution welcome</p>
+            <p class="exp-detail">Goal: $500</p>
+            <button class="exp-purchase-btn" data-title="Amalfi Coast Boat Ride" data-price="" data-type="open" data-goal="500">Purchase</button>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="exp-card">
+          <div class="exp-img-wrap">
+            <img src="Honeymoon%20fund/6.%20Tuscany%20cooking%20class.PNG" alt="Tuscany Cooking Class" loading="lazy" />
+          </div>
+          <div class="exp-body">
+            <h4 class="exp-title">Tuscany Cooking Class</h4>
+            <p class="exp-price">$75 per person</p>
+            <p class="exp-detail">2 spots available · Goal: $150</p>
+            <button class="exp-purchase-btn" data-title="Tuscany Cooking Class" data-price="75" data-type="fixed" data-spots="2" data-goal="150">Purchase</button>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="exp-card">
+          <div class="exp-img-wrap">
+            <img src="Honeymoon%20fund/7.%20Romantic%20Dinner%20.PNG" alt="Romantic Dinner" loading="lazy" />
+          </div>
+          <div class="exp-body">
+            <h4 class="exp-title">Romantic Dinner</h4>
+            <p class="exp-price">$50 per person</p>
+            <p class="exp-detail">4 spots available · Goal: $200</p>
+            <button class="exp-purchase-btn" data-title="Romantic Dinner" data-price="50" data-type="fixed" data-spots="4" data-goal="200">Purchase</button>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="exp-card">
+          <div class="exp-img-wrap">
+            <img src="Honeymoon%20fund/8.%20Other%20contributions.jpg" alt="Other Contributions" loading="lazy" />
+          </div>
+          <div class="exp-body">
+            <h4 class="exp-title">Other Contributions</h4>
+            <p class="exp-price">Any amount, any time</p>
+            <p class="exp-detail">Every bit helps make our honeymoon unforgettable ✦</p>
+            <button class="exp-purchase-btn" data-title="Other Honeymoon Contributions" data-price="" data-type="open" data-goal="">Purchase</button>
+          </div>
+        </div>
+
+      </div><!-- /.exp-grid -->
+    </div><!-- /#honeymoon-section -->
+
+  </div>
+</section>
+
+<!-- ── PAYMENT MODAL ── -->
+<div id="payment-modal" class="pay-modal" hidden aria-modal="true" role="dialog">
+  <div class="pay-modal-box">
+    <button class="pay-modal-close" id="pay-modal-close" aria-label="Close">✕</button>
+
+    <div id="pay-step-1" class="pay-step">
+      <p class="pay-modal-deco">⸻&thinsp;✦&thinsp;⸻</p>
+      <h3 class="pay-modal-title" id="pay-modal-exp-name"></h3>
+      <p class="pay-modal-sub" id="pay-modal-exp-detail"></p>
+
+      <div class="pay-amount-row" id="pay-amount-row">
+        <label class="pay-label">Amount to send</label>
+        <div class="pay-amount-options" id="pay-amount-options"></div>
+        <div id="pay-custom-wrap" hidden>
+          <label class="pay-label">Enter your contribution</label>
+          <div class="pay-input-row">
+            <span class="pay-dollar">$</span>
+            <input type="number" id="pay-custom-input" class="pay-input" min="1" placeholder="0" />
+          </div>
+        </div>
+      </div>
+
+      <div class="pay-instructions">
+        <p class="pay-instr-label">Send your payment to:</p>
+        <div class="pay-method-row">
+          <span class="pay-method-badge">PayPal</span>
+          <span class="pay-method-val" id="pay-paypal-val">PAYPAL_PLACEHOLDER</span>
+        </div>
+        <div class="pay-method-row">
+          <span class="pay-method-badge">Venmo</span>
+          <span class="pay-method-val" id="pay-venmo-val">@VENMO_PLACEHOLDER</span>
+        </div>
+        <div class="pay-method-row">
+          <span class="pay-method-badge">Zelle</span>
+          <span class="pay-method-val" id="pay-zelle-val">ZELLE_PLACEHOLDER</span>
+        </div>
+        <p class="pay-memo-note">Please include <strong id="pay-memo-text"></strong> in your payment memo so we know who to thank! 💛</p>
+      </div>
+
+      <button class="btn-primary pay-confirm-btn" id="pay-confirm-btn">I've Sent My Gift ✦</button>
+    </div>
+
+    <div id="pay-step-2" class="pay-step" hidden>
+      <div class="pay-confirm-wrap">
+        <p class="pay-confirm-icon">🤍</p>
+        <h3 class="pay-confirm-title">Thank You!</h3>
+        <p class="pay-confirm-msg">Your generosity means the world to us. We are so grateful for your love and support as we begin this new chapter together.</p>
+        <p class="pay-confirm-sub">— Amaziah &amp; Santana</p>
+        <button class="btn-primary" id="pay-done-btn">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE 7 · FAQ
+═════════════════════════════════════════════ -->
+<section id="page-faq" class="page scrollable">
+  <div class="page-body">
+
+    <header class="sec-head">
+      <p class="sec-deco" aria-hidden="true">⸻&thinsp;✦&thinsp;⸻</p>
+      <h2 class="sec-title">FAQ</h2>
+      <p class="sec-sub">EVERYTHING YOU NEED TO KNOW</p>
+    </header>
+
+    <div class="faq-list">
+
+      <div class="faq-section-label reveal">TRAVEL &amp; ACCOMMODATIONS</div>
+
+      <article class="faq-item reveal">
+        <h3 class="faq-q">For those that reserved rooms through the payment plan, when are the next payments due?</h3>
+        <div class="faq-answer">
+          <p><strong>July 30th</strong> — 40% of your room total</p>
+          <p><strong>September 18th</strong> — 30% (remaining balance) of the room total</p>
+          <p>As a gentle reminder, 30% was paid to secure your room.</p>
+        </div>
+      </article>
+
+      <article class="faq-item reveal">
+        <h3 class="faq-q">Are any documents and/or processes needed to enter Italy?</h3>
+        <div class="faq-answer">
+          <p>Yes, you will need your <strong>passport</strong> and <strong>EES</strong>. It's not confirmed yet, but you may also need <strong>ETIAS</strong>.</p>
+          <p><strong>EES (Entry/Exit System)</strong> requires each person to do facial recognition and fingerprint upon arriving in Europe. There is no cost for this, and it is mandatory. The process is completed at the airport. The information will be connected to your passport and will replace a passport stamp.</p>
+          <p><strong>ETIAS (European Travel Information and Authorization System)</strong> is a mandatory, electronic, visa-waiver authorization projected to launch Q4 2026. The purpose is to prescreen travelers for security, public health, and migration risks before they arrive at the border. The cost is 20 euros and the application will be completed online.</p>
+          <p>Depending on when this launches, no one may need to fill this out. We will provide more information on EES and ETIAS as we get updates!</p>
+        </div>
+      </article>
+
+      <article class="faq-item reveal">
+        <h3 class="faq-q">Will transportation be provided from the airport to the hotel?</h3>
+        <div class="faq-answer">
+          <p>Yes, but only for those arriving on <strong>9/29</strong> and/or departing on <strong>10/4</strong>. Those extending their stay should be prepared to coordinate transportation.</p>
+          <p><strong>EVERYONE</strong> please be sure to add your flight itinerary to your RSVP.</p>
+        </div>
+      </article>
+
+      <article class="faq-item reveal">
+        <h3 class="faq-q">Are there any travel essentials I should bring?</h3>
+        <div class="faq-answer">
+          <p>At a minimum, we recommend the following: portable phone charger, power outlet converter, snacks, neck pillow, compression socks and of course your passport.</p>
+          <p>Please see the <strong>Recommendations</strong> tab for additional suggestions.</p>
+        </div>
+      </article>
+
+      <div class="faq-section-label reveal">WEDDING</div>
+
+      <article class="faq-item reveal">
+        <h3 class="faq-q">What is the dress code for the wedding?</h3>
+        <div class="faq-answer">
+          <p>Dress to impress! Our wedding dress code is <strong>formal and is strictly enforced</strong>. Thank you for understanding. We look forward to seeing your Italian looks!</p>
+          <p><strong>Men:</strong> Suit or tuxedo with a tie or bow tie.</p>
+          <p><strong>Women:</strong> Floor length gowns or floor length cocktail dresses.</p>
+          <p>No sneakers, baseball caps, athletic wear or overall casual wear. Please see the <strong>Recommendations</strong> tab for inspiration!</p>
+        </div>
+      </article>
+
+      <article class="faq-item reveal">
+        <h3 class="faq-q">Will the wedding be outside or indoors?</h3>
+        <div class="faq-answer">
+          <p>The ceremony will be <strong>outside</strong>. The dinner will be <strong>indoors</strong>.</p>
+        </div>
+      </article>
+
+      <article class="faq-item reveal">
+        <h3 class="faq-q">What is the RSVP deadline?</h3>
+        <div class="faq-answer">
+          <p><strong>June 27th</strong></p>
+        </div>
+      </article>
+
+      <article class="faq-item reveal">
+        <h3 class="faq-q">Will transportation be provided from the hotel to the wedding venue?</h3>
+        <div class="faq-answer">
+          <p>Yes, we will provide transportation from Villa Balis Crema (hotel) to Villa Arvedi (wedding venue).</p>
+        </div>
+      </article>
+
+      <article class="faq-item reveal">
+        <h3 class="faq-q">When is the wedding and what time?</h3>
+        <div class="faq-answer">
+          <p><strong>Friday, October 2nd at 4:00 PM</strong> at Villa Arvedi.</p>
+        </div>
+      </article>
+
+      <article class="faq-item reveal">
+        <h3 class="faq-q">May I bring a plus one?</h3>
+        <div class="faq-answer">
+          <p>Plus-ones are specifically listed when typing his or her name in the RSVP section. Please refrain from bringing guests that are not listed. Thank you for understanding and we look forward to seeing you! Feel free to reach out to us with any questions.</p>
+        </div>
+      </article>
+
+      <article class="faq-item reveal">
+        <h3 class="faq-q">May I take pictures?</h3>
+        <div class="faq-answer">
+          <p>Our ceremony will be <strong>unplugged</strong>. We kindly ask that all guests refrain from taking pictures and/or videos once the ceremony begins, including when the bride and groom walk down the aisle. It is important to us to give the photographer and videographer the space to capture the moments as seamlessly as possible.</p>
+          <p>Once the officiant announces us as bride and groom, feel free to take as many pictures and videos as you would like! Also feel free to capture moments prior to the ceremony, during cocktail hour, or during the reception!</p>
+        </div>
+      </article>
+
+      <div class="faq-section-label reveal">VENICE AND VERONA DETAILS</div>
+
+      <article class="faq-item reveal">
+        <h3 class="faq-q">How is the weather in Verona/Venice in October?</h3>
+        <div class="faq-answer">
+          <p>Typically, the weather is in the high sixties but can be cool in the evening. We recommend continuing to check the forecast as we get closer to October. There have been record breaking temperatures all over the world this year!</p>
+        </div>
+      </article>
+
+      <article class="faq-item reveal">
+        <h3 class="faq-q">What should I wear outside of the wedding?</h3>
+        <div class="faq-answer">
+          <p>We recommend comfortable walking shoes and layers as the weather may shift from early afternoon to evening. Please see the <strong>Recommendations</strong> tab for inspiration.</p>
+        </div>
+      </article>
+
+      <article class="faq-item reveal">
+        <h3 class="faq-q">Any recommendations for things to do during down time?</h3>
+        <div class="faq-answer">
+          <p>Yes! Please reference the <strong>Things to Do</strong> tab.</p>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAGE 8 · RECOMMENDATIONS
+═════════════════════════════════════════════ -->
+<section id="page-recommendations" class="page scrollable">
+  <div class="page-body">
+    <header class="sec-head">
+      <p class="sec-deco" aria-hidden="true">⸻&thinsp;✦&thinsp;⸻</p>
+      <h2 class="sec-title">Recommendations</h2>
+      <p class="sec-sub">TRAVEL ESSENTIALS &amp; ATTIRE INSPIRATION</p>
+    </header>
+
+    <!-- ── WOMEN'S ATTIRE ── -->
+    <div class="attire-section">
+      <h3 class="attire-heading">
+        <span class="attire-heading-line"></span>
+        Women's Attire
+        <span class="attire-heading-line"></span>
+      </h3>
+      <p class="attire-sub">Floor length gowns or floor length cocktail dresses.</p>
+
+      <div class="fan-carousel" id="carousel-women">
+        <div class="fan-stage">
+          <div class="fan-slide"><img src="Women/Women%201.png" alt="Women's attire 1" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%202.png" alt="Women's attire 2" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%203.png" alt="Women's attire 3" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%204.png" alt="Women's attire 4" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%205.png" alt="Women's attire 5" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%206.png" alt="Women's attire 6" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%207.png" alt="Women's attire 7" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%208.png" alt="Women's attire 8" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%209.png" alt="Women's attire 9" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%2010.png" alt="Women's attire 10" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%2011.png" alt="Women's attire 11" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%2012.png" alt="Women's attire 12" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%2013.png" alt="Women's attire 13" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%2014.png" alt="Women's attire 14" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%2015.png" alt="Women's attire 15" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%2016.png" alt="Women's attire 16" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%2017.png" alt="Women's attire 17" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%2018.png" alt="Women's attire 18" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%2019.png" alt="Women's attire 19" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%2020.png" alt="Women's attire 20" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%2021.png" alt="Women's attire 21" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%2022.png" alt="Women's attire 22" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%2023.png" alt="Women's attire 23" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%2024.png" alt="Women's attire 24" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Women/Women%2025.png" alt="Women's attire 25" loading="lazy" /></div>
+        </div>
+        <button class="fan-btn fan-prev" aria-label="Previous">&#8592;</button>
+        <button class="fan-btn fan-next" aria-label="Next">&#8594;</button>
+        <div class="fan-dots"></div>
+      </div>
+    </div>
+
+    <!-- divider -->
+    <div class="rec-divider"></div>
+
+    <!-- ── MEN'S ATTIRE ── -->
+    <div class="attire-section">
+      <h3 class="attire-heading">
+        <span class="attire-heading-line"></span>
+        Men's Attire
+        <span class="attire-heading-line"></span>
+      </h3>
+      <p class="attire-sub">Suit or tuxedo with a tie or bow tie.</p>
+
+      <div class="fan-carousel" id="carousel-men">
+        <div class="fan-stage">
+          <div class="fan-slide"><img src="Men/Men%201.png" alt="Men's attire 1" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%202.png" alt="Men's attire 2" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%203.png" alt="Men's attire 3" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%204.png" alt="Men's attire 4" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%205.png" alt="Men's attire 5" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%206.png" alt="Men's attire 6" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%207.png" alt="Men's attire 7" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%208.png" alt="Men's attire 8" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%209.png" alt="Men's attire 9" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%2010.png" alt="Men's attire 10" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%2011.png" alt="Men's attire 11" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%2012.png" alt="Men's attire 12" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%2013.png" alt="Men's attire 13" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%2014.png" alt="Men's attire 14" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%2015.png" alt="Men's attire 15" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%2016.png" alt="Men's attire 16" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%2017.png" alt="Men's attire 17" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%2018.png" alt="Men's attire 18" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%2019.png" alt="Men's attire 19" loading="lazy" /></div>
+          <div class="fan-slide"><img src="Men/Men%2020.png" alt="Men's attire 20" loading="lazy" /></div>
+        </div>
+        <button class="fan-btn fan-prev" aria-label="Previous">&#8592;</button>
+        <button class="fan-btn fan-next" aria-label="Next">&#8594;</button>
+        <div class="fan-dots"></div>
+      </div>
+    </div>
+
+    <!-- divider -->
+    <div class="rec-divider"></div>
+
+    <!-- ── TRAVEL ESSENTIALS ── -->
+    <div class="essentials-section">
+      <h3 class="attire-heading">
+        <span class="attire-heading-line"></span>
+        Travel Essentials
+        <span class="attire-heading-line"></span>
+      </h3>
+      <p class="attire-sub">Pack smart for Italy.</p>
+
+      <div class="essentials-outer">
+        <button class="ess-arrow ess-prev" aria-label="Scroll left">&#8592;</button>
+        <div class="essentials-track" id="essentials-track">
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/1.%20Plug%20adapter.jpg" alt="Plug Adapter" loading="lazy" /></div>
+            <p class="ess-name">1. Plug Adapter</p>
+            <p class="ess-desc">Verona and Venice wall outlets do not mirror USA outlets. Type C and Type L adapters are needed. A universal adapter works across multiple countries.</p>
+          </div>
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/2.%20Portable%20phone%20charger.png" alt="Portable Charger" loading="lazy" /></div>
+            <p class="ess-name">2. Portable Charger</p>
+            <p class="ess-desc">Keeps your phone charged throughout the day as you won't always be near wall outlets.</p>
+          </div>
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/3.%20Compression%20socks.png" alt="Compression Socks" loading="lazy" /></div>
+            <p class="ess-name">3. Compression Socks</p>
+            <p class="ess-desc">Encourages blood flow and helps prevent swelling on long flights.</p>
+          </div>
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/4.%20Snacks.png" alt="Snacks" loading="lazy" /></div>
+            <p class="ess-name">4. Snacks</p>
+            <p class="ess-desc">Always a good idea to have your favorite snacks on the plane and in your room for last minute cravings!</p>
+          </div>
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/5.%20Noise%20canceling%20headphones.png" alt="Headphones" loading="lazy" /></div>
+            <p class="ess-name">5. Headphones</p>
+            <p class="ess-desc">Noise cancelling headphones are helpful for a relaxing and quiet flight.</p>
+          </div>
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/6.%20First%20aid%20kit.png" alt="First Aid Kit" loading="lazy" /></div>
+            <p class="ess-name">6. First Aid Kit</p>
+            <p class="ess-desc">Helpful for minor accidents while traveling.</p>
+          </div>
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/7.%20Medicine.png" alt="Medicine" loading="lazy" /></div>
+            <p class="ess-name">7. Medicine</p>
+            <p class="ess-desc">Bring allergy meds, pain killers, supplements, vitamins, digestion aids, etc. just in case.</p>
+          </div>
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/8.%20Neck%20pillow.png" alt="Neck Pillow" loading="lazy" /></div>
+            <p class="ess-name">8. Neck Pillow</p>
+            <p class="ess-desc">Creates comfort when sleeping on the plane.</p>
+          </div>
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/9.%20Eye%20mask%20.png" alt="Eye Mask" loading="lazy" /></div>
+            <p class="ess-name">9. Eye Mask</p>
+            <p class="ess-desc">Helpful when sleeping on the plane.</p>
+          </div>
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/10.%20Comfortable%20shoes.png" alt="Comfortable Shoes" loading="lazy" /></div>
+            <p class="ess-name">10. Comfortable Shoes</p>
+            <p class="ess-desc">There will be lots of walking on cobblestone streets — comfort is key!</p>
+          </div>
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/11.%20Mini%20umbrella%20.png" alt="Mini Umbrella" loading="lazy" /></div>
+            <p class="ess-name">11. Mini Umbrella</p>
+            <p class="ess-desc">We all know weather can be unpredictable!</p>
+          </div>
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/12.%20Crossbody%20bag%20or%20fanny%20pack.png" alt="Crossbody Bag or Fanny Pack" loading="lazy" /></div>
+            <p class="ess-name">12. Crossbody Bag / Fanny Pack</p>
+            <p class="ess-desc">Optimal choice for carrying personal items. Backpacks are not recommended for safety purposes.</p>
+          </div>
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/13.%20AirTag.png" alt="AirTag" loading="lazy" /></div>
+            <p class="ess-name">13. AirTag</p>
+            <p class="ess-desc">Track your bag if it inadvertently gets lost.</p>
+          </div>
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/14.%20Travel%20garment%20steamer.png" alt="Travel Garment Steamer" loading="lazy" /></div>
+            <p class="ess-name">14. Travel Garment Steamer</p>
+            <p class="ess-desc">Will help to quickly remove wrinkles in clothes after a long journey.</p>
+          </div>
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/15.%20Electrolytes.png" alt="Electrolytes" loading="lazy" /></div>
+            <p class="ess-name">15. Electrolytes</p>
+            <p class="ess-desc">Stay hydrated and energized during travel and long days of sightseeing.</p>
+          </div>
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/16.%20Portable%20fan.png" alt="Portable Fan" loading="lazy" /></div>
+            <p class="ess-name">16. Portable Fan</p>
+            <p class="ess-desc">Helpful for warm afternoons while exploring the city.</p>
+          </div>
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/17.%20Jacket.png" alt="Jacket" loading="lazy" /></div>
+            <p class="ess-name">17. Jacket</p>
+            <p class="ess-desc">Evenings in Verona can be cool in October — layers are key.</p>
+          </div>
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/18.%20Reusable%20water%20bottle.png" alt="Reusable Water Bottle" loading="lazy" /></div>
+            <p class="ess-name">18. Reusable Water Bottle</p>
+            <p class="ess-desc">Stay hydrated on the go. Italy has many public fountains with fresh drinking water.</p>
+          </div>
+
+          <div class="ess-item">
+            <div class="ess-img-wrap"><img src="Travel%20Essentials/19.%20Euros.png" alt="Euros" loading="lazy" /></div>
+            <p class="ess-name">19. Euros</p>
+            <p class="ess-desc">Italy uses Euros. Exchange currency before your trip or upon arrival at the airport.</p>
+          </div>
+
+        </div>
+        <button class="ess-arrow ess-next" aria-label="Scroll right">&#8594;</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAGE 9 · THINGS TO DO
+═════════════════════════════════════════════ -->
+<section id="page-todo" class="page scrollable">
+  <div class="page-body">
+    <header class="sec-head">
+      <p class="sec-deco" aria-hidden="true">⸻&thinsp;✦&thinsp;⸻</p>
+      <h2 class="sec-title">Things to Do</h2>
+      <p class="sec-sub">VERONA &amp; VENICE</p>
+    </header>
+    <div class="reg-coming-soon reveal">
+      <p>Coming soon</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAGE 10 · PICTURES
+═════════════════════════════════════════════ -->
+<section id="page-pictures" class="page scrollable">
+  <div class="page-body">
+
+    <header class="sec-head">
+      <p class="sec-deco" aria-hidden="true">⸻&thinsp;✦&thinsp;⸻</p>
+      <h2 class="sec-title">ENGAGEMENT PHOTOSHOOT</h2>
+    </header>
+
+    <p class="gallery-lead reveal">A small collection from our engagement shoot. Tap any photo to view full size.</p>
+
+    <!-- Gallery is built dynamically by app.js to keep markup small and lazy-load images. -->
+    <div class="gallery" id="gallery-grid" data-source="engagement"></div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" hidden>
+      <button class="lb-close" id="lb-close" aria-label="Close">✕</button>
+      <button class="lb-prev" id="lb-prev" aria-label="Previous">‹</button>
+      <button class="lb-next" id="lb-next" aria-label="Next">›</button>
+      <img id="lb-image" alt="" />
+    </div>
+
+  </div>
+</section>
+
+<!-- Page transition veil -->
+<div id="veil" aria-hidden="true"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
