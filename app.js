@@ -25,7 +25,7 @@ const CONFIG = Object.freeze({
   /* Google Apps Script web app URL — paste after deploying scripts/rsvp_sheet.gs.
      Each RSVP submission updates the Google Sheet and emails a full list to ayandsh2026@gmail.com.
      Leave blank to save locally only (no email sent). */
-  GSHEET_ENDPOINT: 'https://script.google.com/macros/s/AKfycbxrw23DOCsHbkB29IcaHq8Yp75kU8IyMANL7psiThWpjq9iWmT5Lh4uHRXgu_o-RNzUYQ/exec',
+  GSHEET_ENDPOINT: 'https://script.google.com/macros/s/AKfycbxKFLr4bqN0Qh6ZhrYkOP2gT3u3q6O8befEsRvn3-87ehMWVDn-7ZEaVyy67q8UJRvxww/exec',
 
   /* Starting RSVP ID — auto-increments from here. */
   RSVP_START_NUMBER: 10,
