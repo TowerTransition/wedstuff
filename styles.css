@@ -2127,3 +2127,31 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   font-style: italic; color: var(--gold);
   margin-bottom: 1.8rem;
 }
+
+.pay-btn-group {
+  display: flex; flex-direction: column; gap: .7rem;
+  margin-bottom: 1.2rem;
+}
+.pay-platform-btn {
+  display: block; width: 100%;
+  text-align: center; text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .9rem; font-weight: 600;
+  letter-spacing: .06em; padding: .75rem 1rem;
+  border-radius: 3px; transition: opacity .2s, transform .15s;
+}
+.pay-platform-btn:hover { opacity: .88; transform: translateY(-1px); }
+.pay-paypal-btn { background: #0070ba; color: #fff; }
+.pay-venmo-btn  { background: #3d95ce; color: #fff; }
+
+.pay-zelle-block {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: .5rem; padding: .75rem;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(196,164,92,.15);
+  border-radius: 3px; margin-bottom: 1rem;
+}
+.pay-zelle-info {
+  font-family: 'Montserrat', sans-serif;
+  font-size: .85rem; color: var(--cream); flex: 1;
+}

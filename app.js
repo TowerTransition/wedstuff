@@ -910,6 +910,17 @@ buildGallery();
   var memoText   = document.getElementById('pay-memo-text');
   var copyBtn    = document.getElementById('pay-zelle-copy');
 
+  function updateLinks(amount, title) {
+    var note = encodeURIComponent(title);
+    if (amount) {
+      paypalLink.href = 'https://paypal.me/simplysantana/' + amount;
+      venmoLink.href  = 'https://venmo.com/santanah?txn=pay&amount=' + amount + '&note=' + note;
+    } else {
+      paypalLink.href = 'https://paypal.me/simplysantana';
+      venmoLink.href  = 'https://venmo.com/santanah';
+    }
+  }
+
   function openModal(btn) {
     var title  = btn.dataset.title;
     var price  = btn.dataset.price;
@@ -939,23 +950,33 @@ buildGallery();
         document.querySelectorAll('.pay-amt-btn').forEach(function (b) { b.classList.remove('selected'); });
         customBtn.classList.add('selected');
         customWrap.hidden = false;
+        customIn.value = '';
+        updateLinks('', title);
         customIn.focus();
       });
       perPerson.addEventListener('click', function () {
         document.querySelectorAll('.pay-amt-btn').forEach(function (b) { b.classList.remove('selected'); });
         perPerson.classList.add('selected');
         customWrap.hidden = true;
+        updateLinks(price, title);
       });
       amtOptions.appendChild(customBtn);
 
+      // Live-update links as custom amount is typed
+      customIn.addEventListener('input', function () {
+        updateLinks(customIn.value || '', title);
+      });
+
       // Pre-fill PayPal/Venmo links with fixed price
-      paypalLink.href = 'https://paypal.me/simplysantana/' + price;
-      venmoLink.href  = 'https://venmo.com/santanah?txn=pay&amount=' + price + '&note=' + encodeURIComponent(title);
+      updateLinks(price, title);
     } else {
       // Open contribution — show custom input only
       customWrap.hidden = false;
-      paypalLink.href = 'https://paypal.me/simplysantana';
-      venmoLink.href  = 'https://venmo.com/santanah';
+      customIn.value = '';
+      updateLinks('', title);
+      customIn.addEventListener('input', function () {
+        updateLinks(customIn.value || '', title);
+      });
     }
 
     step1.hidden = false;
