@@ -355,19 +355,14 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
    sharp layer uses object-fit: contain, these edges read as “fill” not empty
    frame; tuned brighter so they blend with the photo (not a dark border). */
 .slide-bg {
-  z-index: 0;
-  position: absolute; inset: -12%;
-  background-size: cover;
-  background-position: center;
-  filter: blur(28px) saturate(0.92) brightness(0.78) contrast(1.04);
-  transform: scale(1.06);
+  display: none;
 }
 
 .slide-fg {
   z-index: 1;
   position: absolute; inset: 0;
   width: 100%; height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 }
 
@@ -1973,4 +1968,162 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 @media (min-width: 1280px) {
   :root { --max-w: 1000px; }
+}
+
+/* ════════════════════════════════════════════
+   PAYMENT MODAL
+════════════════════════════════════════════ */
+.pay-modal {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,.78);
+  display: flex; align-items: center; justify-content: center;
+  padding: 1rem;
+}
+.pay-modal[hidden] { display: none; }
+
+.pay-modal-box {
+  background: #111;
+  border: 1px solid rgba(196,164,92,.25);
+  border-radius: 4px;
+  max-width: 480px; width: 100%;
+  max-height: 90vh; overflow-y: auto;
+  padding: 2.4rem 2rem 2rem;
+  position: relative;
+}
+
+.pay-modal-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: none; border: none;
+  color: var(--cream-65); font-size: 1.2rem;
+  cursor: pointer; line-height: 1; padding: .3rem .5rem;
+}
+.pay-modal-close:hover { color: var(--cream); }
+
+.pay-modal-deco {
+  text-align: center; color: var(--gold);
+  letter-spacing: .15em; margin-bottom: .8rem;
+}
+.pay-modal-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  color: var(--gold-hi); text-align: center;
+  margin-bottom: .3rem; font-weight: 500;
+}
+.pay-modal-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: .85rem; color: var(--cream-65);
+  text-align: center; margin-bottom: 1.6rem;
+  letter-spacing: .05em;
+}
+
+.pay-label {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .75rem; letter-spacing: .1em;
+  color: var(--cream-65); margin-bottom: .6rem;
+  text-transform: uppercase;
+}
+.pay-amount-row { margin-bottom: 1.6rem; }
+.pay-amount-options {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+}
+.pay-amt-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-size: .9rem; padding: .55rem 1.1rem;
+  border: 1px solid rgba(196,164,92,.4);
+  background: transparent; color: var(--cream);
+  border-radius: 3px; cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+.pay-amt-btn:hover, .pay-amt-btn.selected {
+  background: rgba(196,164,92,.15);
+  border-color: var(--gold);
+}
+.pay-input-row {
+  display: flex; align-items: center;
+  border: 1px solid rgba(196,164,92,.4);
+  border-radius: 3px; overflow: hidden;
+  margin-top: .5rem;
+}
+.pay-dollar {
+  padding: .55rem .75rem;
+  color: var(--gold); font-family: 'Montserrat', sans-serif;
+  background: rgba(196,164,92,.08);
+}
+.pay-input {
+  flex: 1; background: transparent;
+  border: none; outline: none;
+  color: var(--cream); font-family: 'Montserrat', sans-serif;
+  font-size: 1rem; padding: .55rem .75rem;
+}
+
+.pay-instructions {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(196,164,92,.15);
+  border-radius: 3px; padding: 1.2rem;
+  margin-bottom: 1.6rem;
+}
+.pay-instr-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: .75rem; letter-spacing: .1em;
+  color: var(--cream-65); text-transform: uppercase;
+  margin-bottom: .9rem;
+}
+.pay-method-row {
+  display: flex; align-items: center;
+  gap: .75rem; margin-bottom: .7rem;
+}
+.pay-method-row:last-child { margin-bottom: 0; }
+.pay-method-badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: .72rem; letter-spacing: .08em;
+  color: var(--gold); text-transform: uppercase;
+  min-width: 50px;
+}
+.pay-method-val {
+  font-family: 'Montserrat', sans-serif;
+  font-size: .9rem; color: var(--cream);
+  display: flex; align-items: center; gap: .6rem; flex-wrap: wrap;
+}
+.pay-method-link {
+  color: var(--gold-hi);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pay-method-link:hover { color: #fff; }
+.pay-copy-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-size: .72rem; letter-spacing: .06em;
+  background: rgba(196,164,92,.15);
+  border: 1px solid rgba(196,164,92,.35);
+  color: var(--gold); border-radius: 2px;
+  padding: .2rem .5rem; cursor: pointer;
+  transition: background .2s;
+}
+.pay-copy-btn:hover { background: rgba(196,164,92,.3); }
+
+.pay-memo-note {
+  font-family: 'Montserrat', sans-serif;
+  font-size: .8rem; color: var(--cream-65);
+  margin-top: 1rem; line-height: 1.6;
+}
+
+.pay-confirm-btn { width: 100%; }
+
+.pay-confirm-wrap { text-align: center; padding: 1rem 0; }
+.pay-confirm-icon { font-size: 2.5rem; margin-bottom: .8rem; }
+.pay-confirm-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem; color: var(--gold-hi);
+  margin-bottom: .8rem;
+}
+.pay-confirm-msg {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; color: var(--cream-92);
+  line-height: 1.8; margin-bottom: .6rem;
+}
+.pay-confirm-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; color: var(--gold);
+  margin-bottom: 1.8rem;
 }

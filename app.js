@@ -894,3 +894,105 @@ buildGallery();
 
   document.querySelectorAll('.fan-carousel').forEach(initFan);
 }());
+
+/* ── 12 · PAYMENT MODAL ──────────────────────────────── */
+(function () {
+  var modal      = document.getElementById('payment-modal');
+  var step1      = document.getElementById('pay-step-1');
+  var step2      = document.getElementById('pay-step-2');
+  var titleEl    = document.getElementById('pay-modal-exp-name');
+  var detailEl   = document.getElementById('pay-modal-exp-detail');
+  var amtOptions = document.getElementById('pay-amount-options');
+  var customWrap = document.getElementById('pay-custom-wrap');
+  var customIn   = document.getElementById('pay-custom-input');
+  var paypalLink = document.getElementById('pay-paypal-val');
+  var venmoLink  = document.getElementById('pay-venmo-val');
+  var memoText   = document.getElementById('pay-memo-text');
+  var copyBtn    = document.getElementById('pay-zelle-copy');
+
+  function openModal(btn) {
+    var title  = btn.dataset.title;
+    var price  = btn.dataset.price;
+    var type   = btn.dataset.type;
+    var detail = btn.closest('.exp-body').querySelector('.exp-detail').textContent;
+
+    titleEl.textContent  = title;
+    detailEl.textContent = detail;
+    memoText.textContent = '"' + title + '"';
+
+    // Amount options
+    amtOptions.innerHTML = '';
+    customWrap.hidden = true;
+
+    if (type === 'fixed' && price) {
+      var perPerson = document.createElement('button');
+      perPerson.className = 'pay-amt-btn selected';
+      perPerson.textContent = '$' + price + ' per person';
+      perPerson.type = 'button';
+      amtOptions.appendChild(perPerson);
+
+      var customBtn = document.createElement('button');
+      customBtn.className = 'pay-amt-btn';
+      customBtn.textContent = 'Custom amount';
+      customBtn.type = 'button';
+      customBtn.addEventListener('click', function () {
+        document.querySelectorAll('.pay-amt-btn').forEach(function (b) { b.classList.remove('selected'); });
+        customBtn.classList.add('selected');
+        customWrap.hidden = false;
+        customIn.focus();
+      });
+      perPerson.addEventListener('click', function () {
+        document.querySelectorAll('.pay-amt-btn').forEach(function (b) { b.classList.remove('selected'); });
+        perPerson.classList.add('selected');
+        customWrap.hidden = true;
+      });
+      amtOptions.appendChild(customBtn);
+
+      // Pre-fill PayPal/Venmo links with fixed price
+      paypalLink.href = 'https://paypal.me/simplysantana/' + price;
+      venmoLink.href  = 'https://venmo.com/santanah?txn=pay&amount=' + price + '&note=' + encodeURIComponent(title);
+    } else {
+      // Open contribution — show custom input only
+      customWrap.hidden = false;
+      paypalLink.href = 'https://paypal.me/simplysantana';
+      venmoLink.href  = 'https://venmo.com/santanah';
+    }
+
+    step1.hidden = false;
+    step2.hidden = true;
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  // Wire purchase buttons
+  document.querySelectorAll('.exp-purchase-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () { openModal(btn); });
+  });
+
+  // Close triggers
+  document.getElementById('pay-modal-close').addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
+
+  // Confirm → thank you step
+  document.getElementById('pay-confirm-btn').addEventListener('click', function () {
+    step1.hidden = true;
+    step2.hidden = false;
+  });
+
+  // Done
+  document.getElementById('pay-done-btn').addEventListener('click', closeModal);
+
+  // Zelle copy
+  copyBtn.addEventListener('click', function () {
+    navigator.clipboard.writeText(copyBtn.dataset.copy).then(function () {
+      copyBtn.textContent = 'Copied!';
+      setTimeout(function () { copyBtn.textContent = 'Copy Email'; }, 2000);
+    });
+  });
+}());
