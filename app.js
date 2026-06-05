@@ -36,8 +36,9 @@ const CONFIG = Object.freeze({
 
   /* Background playlist: first track plays on enter, second after it ends (loops). */
   MUSIC_PLAYLIST: [
-    'Music/At%20Last.mp3',
     'Music/Ella%20Fitzgerald%2C%20Louis%20Armstrong%20-%20Cheek%20To%20Cheek%20%28Official%20Video%29%204.mp3',
+    'Music/At%20Last.mp3',
+    'Music/My%20Cherie%20Amour.mp3',
   ],
 
   /* Engagement shoot gallery — ordered by row */
