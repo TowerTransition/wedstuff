@@ -402,7 +402,8 @@ const GUEST_LIST = [
   'Sherice','Kyle','Miranda','Chi','Chi wife','Claudia','Shayla','Lea',
   'Julene','DJ','Natalie','Samantha','Yma','Yma plus one','Alexa','Brandi',
   'Lovett','Lovett plus one','Sarai','Sarai plus one','Samiya','Sergio',
-  'Justice','Jenni','Davin','Morganne','Alaina','Marjorie','Larry','Sharon'
+  'Justice','Jenni','Davin','Morganne','Alaina','Marjorie','Larry','Sharon',
+  'Bola','Oulani','Randolph','Shena','Kasheena'
 ];
 
 function findGuest(input) {
