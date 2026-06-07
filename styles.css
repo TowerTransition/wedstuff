@@ -826,14 +826,25 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   padding-inline: 0;
 }
 .story-marquee-shell--full .story-marquee-card {
-  width: auto;
+  width: 260px;
   height: clamp(340px, 55vh, 520px);
   border: none;
+  background: #111;
 }
 .story-marquee-shell--full .story-marquee-card img {
-  width: auto;
+  width: 100%;
   height: 100%;
-  object-fit: unset;
+  object-fit: cover;
+  object-position: center;
+}
+@media (min-width: 900px) {
+  .story-marquee-shell--full .story-marquee-card {
+    width: auto;
+  }
+  .story-marquee-shell--full .story-marquee-card img {
+    width: auto;
+    object-fit: unset;
+  }
 }
 @media (min-width: 900px) {
   .story-marquee-shell--full {
