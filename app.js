@@ -166,6 +166,16 @@ function goTo(name) {
       nav.removeAttribute('aria-hidden');
     }
 
+    /* Force iOS to repaint marquee animations when story page activates */
+    if (name === 'story') {
+      var movers = document.querySelectorAll('.story-marquee-mover, .story-marquee-mover-proposal');
+      movers.forEach(function (m) {
+        m.style.animationPlayState = 'paused';
+        void m.offsetWidth; /* trigger reflow */
+        m.style.animationPlayState = 'running';
+      });
+    }
+
     $$('.nav-btn').forEach(b =>
       b.classList.toggle('active', b.dataset.page === name)
     );
