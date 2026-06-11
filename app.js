@@ -778,14 +778,19 @@ buildGallery();
   var nextBtn = document.querySelector('.ess-next');
   if (!track || !prevBtn || !nextBtn) return;
 
-  var SCROLL_AMT = window.innerWidth < 700 ? 196 : 580; /* 1 card on mobile, ~3 on desktop */
+  var items = Array.from(track.querySelectorAll('.ess-item'));
+  if (!items.length) return;
+  var cur = 0;
 
-  prevBtn.addEventListener('click', function () {
-    track.scrollBy({ left: -SCROLL_AMT, behavior: 'smooth' });
-  });
-  nextBtn.addEventListener('click', function () {
-    track.scrollBy({ left: SCROLL_AMT, behavior: 'smooth' });
-  });
+  function goTo(idx) {
+    cur = ((idx % items.length) + items.length) % items.length;
+    var itemRect  = items[cur].getBoundingClientRect();
+    var trackRect = track.getBoundingClientRect();
+    track.scrollTo({ left: track.scrollLeft + (itemRect.left - trackRect.left), behavior: 'smooth' });
+  }
+
+  prevBtn.addEventListener('click', function () { goTo(cur - 1); });
+  nextBtn.addEventListener('click', function () { goTo(cur + 1); });
 
   /* click image → enlarge 30 % + show text; click again → restore */
   track.addEventListener('click', function (e) {
@@ -793,12 +798,10 @@ buildGallery();
     if (!img) return;
     var item = img.closest('.ess-item');
     var isActive = item.classList.contains('active');
-    /* collapse everything first */
     track.querySelectorAll('.ess-item.active').forEach(function (el) {
       el.classList.remove('active');
       el.querySelector('.ess-img-wrap img').classList.remove('enlarged');
     });
-    /* toggle the clicked one */
     if (!isActive) {
       item.classList.add('active');
       img.classList.add('enlarged');
