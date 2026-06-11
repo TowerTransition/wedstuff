@@ -778,7 +778,7 @@ buildGallery();
   var nextBtn = document.querySelector('.ess-next');
   if (!track || !prevBtn || !nextBtn) return;
 
-  var SCROLL_AMT = 580; /* px per arrow click (~3 cards) */
+  var SCROLL_AMT = window.innerWidth < 700 ? 196 : 580; /* 1 card on mobile, ~3 on desktop */
 
   prevBtn.addEventListener('click', function () {
     track.scrollBy({ left: -SCROLL_AMT, behavior: 'smooth' });
@@ -874,14 +874,18 @@ buildGallery();
     prevBtn.addEventListener('click', function () { go(cur - 1); });
     nextBtn.addEventListener('click', function () { go(cur + 1); });
 
-    /* swipe */
-    var startX = 0;
+    /* swipe — only fire if horizontal drag clearly dominates vertical */
+    var startX = 0, startY = 0;
     stage.addEventListener('touchstart', function (e) {
       startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
     }, { passive: true });
     stage.addEventListener('touchend', function (e) {
       var dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1));
+      var dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        go(cur + (dx < 0 ? 1 : -1));
+      }
     }, { passive: true });
 
     /* click side images to jump to them */
