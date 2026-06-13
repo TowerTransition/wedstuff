@@ -841,6 +841,7 @@ buildGallery();
     if (slides.length === 0) return;
 
     var cur = 0;
+    var fanBusy = false;
 
     /* ── layout constants ── */
     var SLIDE_W   = 220;   /* px — matches CSS .fan-slide width  */
@@ -888,8 +889,11 @@ buildGallery();
     });
 
     function go(idx) {
+      if (fanBusy) return;
+      fanBusy = true;
       cur = (idx + slides.length) % slides.length;
       render();
+      setTimeout(function () { fanBusy = false; }, 550);
     }
 
     prevBtn.addEventListener('click', function () { go(cur - 1); });
