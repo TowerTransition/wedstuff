@@ -791,12 +791,15 @@ buildGallery();
   var items = Array.from(track.querySelectorAll('.ess-item'));
   if (!items.length) return;
   var cur = 0;
+  var CARD_W = items[0].offsetWidth + 22; /* card width + gap */
+  var scrolling = false;
 
   function goTo(idx) {
+    if (scrolling) return;
     cur = ((idx % items.length) + items.length) % items.length;
-    var itemRect  = items[cur].getBoundingClientRect();
-    var trackRect = track.getBoundingClientRect();
-    track.scrollTo({ left: track.scrollLeft + (itemRect.left - trackRect.left), behavior: 'smooth' });
+    scrolling = true;
+    track.scrollTo({ left: cur * CARD_W, behavior: 'smooth' });
+    setTimeout(function () { scrolling = false; }, 400);
   }
 
   prevBtn.addEventListener('click', function () { goTo(cur - 1); });
