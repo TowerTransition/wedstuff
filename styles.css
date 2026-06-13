@@ -1518,6 +1518,17 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   transform: scale(1.30);
   box-shadow: 0 14px 44px rgba(196,164,92,.4);
 }
+@media (max-width: 700px) {
+  .ess-img-wrap img.enlarged {
+    transform: none;
+    box-shadow: none;
+  }
+  .ess-img-wrap img {
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
 
 /* text hidden by default — revealed on click */
 .ess-name,
