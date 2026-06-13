@@ -1479,6 +1479,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   scrollbar-width: none;
   padding: 1rem .4rem 1.6rem;
   align-items: flex-start;
+  touch-action: pan-x;
 }
 .essentials-track::-webkit-scrollbar { display: none; }
 
@@ -1575,6 +1576,9 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   align-items: center;
   justify-content: center;
   transition: background .2s, border-color .2s;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
 }
 .ess-arrow:hover {
   background: rgba(196,164,92,.22);

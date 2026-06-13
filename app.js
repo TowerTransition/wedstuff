@@ -793,22 +793,27 @@ buildGallery();
   var cur = 0;
   var CARD_W = items[0].offsetWidth + 22; /* card width + gap */
   var scrolling = false;
+  var lastTap = 0;
 
   function goTo(idx) {
     if (scrolling) return;
     cur = ((idx % items.length) + items.length) % items.length;
     scrolling = true;
     track.scrollTo({ left: cur * CARD_W, behavior: 'smooth' });
-    setTimeout(function () { scrolling = false; }, 400);
+    setTimeout(function () { scrolling = false; }, 600);
   }
 
   prevBtn.addEventListener('click', function () { goTo(cur - 1); });
   nextBtn.addEventListener('click', function () { goTo(cur + 1); });
 
   /* click image → enlarge 30 % + show text; click again → restore */
+  /* guard against rapid double-tap triggering enlarge during scroll */
   track.addEventListener('click', function (e) {
+    var now = Date.now();
+    if (now - lastTap < 600) return; /* ignore if arrows were just tapped */
     var img = e.target.closest('.ess-img-wrap img');
     if (!img) return;
+    lastTap = now;
     var item = img.closest('.ess-item');
     var isActive = item.classList.contains('active');
     track.querySelectorAll('.ess-item.active').forEach(function (el) {
